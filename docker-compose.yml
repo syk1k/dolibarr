@@ -9,7 +9,7 @@ services:
     image: mysql:5.7
     volumes:
       - ./db_data:/var/lib/mysql
-    restart: no
+    restart: unless-stopped
     environment:
       MYSQL_ROOT_PASSWORD: root
       MYSQL_DATABASE: dolibarr
