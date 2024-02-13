@@ -25,7 +25,7 @@ services:
       - ./nginx:/etc/nginx/conf.d
     labels:
       - traefik.enable=true
-      - traefik.http.routers.dolibarr.rule=Host(`gestion.kalamar.tg`,)
+      - traefik.http.routers.dolibarr.rule=Host(`gestion.kalamar.xyz`,)
       - traefik.http.routers.dolibarr.tls=true
       - traefik.http.routers.dolibarr.tls.certresolver=le
     networks:
