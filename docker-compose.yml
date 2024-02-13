@@ -3,7 +3,7 @@ services:
   app:
     hostname: dolibarr
     image: dolibarr-app
-    restart: no
+    restart: unless-stopped
     
   db:
     image: mysql:5.7
