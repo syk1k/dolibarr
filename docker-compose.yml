@@ -25,9 +25,9 @@ services:
       - ./nginx:/etc/nginx/conf.d
     labels:
       - traefik.enable=true
-      - traefik.http.routers.ucrowd.rule=Host(`gestion.kalamar.tg`,)
-      - traefik.http.routers.ucrowd.tls=true
-      - traefik.http.routers.ucrowd.tls.certresolver=le
+      - traefik.http.routers.dolibarr.rule=Host(`gestion.kalamar.tg`,)
+      - traefik.http.routers.dolibarr.tls=true
+      - traefik.http.routers.dolibarr.tls.certresolver=le
     networks:
       - default
       - traefik-proxy
