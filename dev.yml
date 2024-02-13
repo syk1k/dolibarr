@@ -4,13 +4,13 @@ services:
     build: .
     hostname: dolibarr
     image: dolibarr-app
-    restart: no
+    restart: unless-stopped
   
   db:
     image: mysql:5.7
     volumes:
       - ./db_data:/var/lib/mysql
-    restart: no
+    restart: unless-stopped
     environment:
       MYSQL_ROOT_PASSWORD: root
       MYSQL_DATABASE: dolibarr
