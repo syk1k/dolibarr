@@ -1,10 +1,9 @@
 version: "3"
 services:
   app:
+    hostname: dolibar
     image: dolibarr-app
     restart: no
-    ports:
-      - 8088:80
   db:
     image: mysql:5.7
     volumes:
@@ -18,3 +17,24 @@ services:
 
     ports:
       - 3307:3306
+
+  nginx:
+    image: nginx:stable-alpine
+    labels:
+      - traefik.enable=true
+      - traefik.http.routers.ucrowd.rule=Host(`gestion.kalamar.tg`,)
+      - traefik.http.routers.ucrowd.tls=true
+      - traefik.http.routers.ucrowd.tls.certresolver=le
+    networks:
+      - default
+      - traefik-proxy
+    depends_on:
+      - app
+    restart: always
+
+volumes:
+  db:
+
+networks:
+  traefik-proxy:
+    external: true
